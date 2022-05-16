@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.active-btn {
+    @apply text-white border-b-2 font-semibold
+}

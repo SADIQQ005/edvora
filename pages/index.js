@@ -1,23 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
+import Cards from "../components/Cards";
+import { useAppContext } from "../context/state";
 
-export async function getStaticProps() {
-  const res = await fetch("https:assessment-edvora.herokuapp.com");
-  const posts = await res.json();
-  console.table(posts)
+function Home() {
+    const { rides, owner } = useAppContext();
+    const code = owner.station_code;
 
-  return {
-    props: {
-      posts,
-    },
-  };
+    const filtered = rides.filter(found => {
+        return found.station_path.includes(code)
+    })
+
+    let disCal
+
+    filtered.map(e => {
+        return disCal = e.station_path[0]
+    })
+
+    const distance = code - disCal 
+
+
+    return (
+        <>
+            {filtered &&
+                filtered.map((ride, index) => <Cards key={index} distance={distance} ride={ride} />)}
+        </>
+    );
 }
 
-export default function Home(props) {
-  return (
-    <>
-      {props.posts.map((post) => {
-        return <h1>{post.product_name}</h1>;
-      })}
-    </>
-  );
-}
+export default Home;
