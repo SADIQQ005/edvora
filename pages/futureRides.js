@@ -3,7 +3,7 @@ import moment from 'moment'
 import Cards from "../components/Cards";
 import { useAppContext } from "../context/state";
 
-function Past() {
+function FutureRides() {
   const { rides, owner } = useAppContext();
 
   const code = owner.station_code - 5;
@@ -21,4 +21,4 @@ function Past() {
   );
 }
 
-export default Past;
+export default FutureRides;

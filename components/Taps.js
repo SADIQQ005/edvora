@@ -19,7 +19,7 @@ export default function Taps() {
               Upcoming rides
             </a>
           </Link>
-          <Link href="/past">
+          <Link href="/future">
             <a className={router.pathname === "/past" ? "active-btn" : ""}>
               Past rides
             </a>
